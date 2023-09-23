@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 // Components
-import Loading, { LoadingContainer } from "../../components/loadingEl";
+import Loading, { LoadingContainer } from "../loadingEl";
 // Context
 import AuthContext from "../../AuthContext";
 // Styling

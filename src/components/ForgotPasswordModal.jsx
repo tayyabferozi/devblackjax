@@ -9,21 +9,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion, faCheck } from "@fortawesome/free-solid-svg-icons";
 // Routing
 import { Link } from "react-router-dom";
-import AuthContext from "../AuthContext";
 
 const ForgotPasswordModal = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const { forgotPasswordHandler } = useContext(AuthContext);
-
   const submitHandler = async (e) => {
     setIsLoading(true);
     e.preventDefault();
-    const success = await forgotPasswordHandler(email);
-    setIsLoading(false);
-    setIsSuccess(success);
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsSuccess(true);
+    }, 3000);
   };
 
   return (

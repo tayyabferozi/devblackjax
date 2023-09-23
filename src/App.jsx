@@ -1,15 +1,15 @@
 import React, { useEffect, useContext } from "react";
 // Pages
-import ForgotPasswordPage from "./pages/ForgotPasswordPage";
-import GaminPage from "./pages/GaminPage";
-import HomePage from "./pages/HomePage";
-import LeaderboardPage from "./pages/LeaderboardPage";
-import LoginPage from "./pages/LoginPage";
-import NotFoundPage from "./pages/NotFoundPage";
-import ResetPasswordPage from "./pages/ResetPasswordPage";
-import SignupPage from "./pages/SignupPage";
-import MePage from "./pages/MePage";
-import ChangePasswordPage from "./pages/ChangePasswordPage";
+import ForgotPassword from "./pages/ForgotPassword";
+import Gaming from "./pages/Gaming";
+import Home from "./pages/Home";
+import Leaderboard from "./pages/Leaderboard";
+import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
+import ResetPassword from "./pages/ResetPassword";
+import Signup from "./pages/Signup";
+import Me from "./pages/Me";
+import ChangePassword from "./pages/ChangePassword";
 // Components
 import GlobalTheme from "./Globals/GlobalTheme";
 import { getLastSave } from "./components/gameSlice";
@@ -54,20 +54,20 @@ function App() {
       </AuthorTag>
       <AnimatePresence mode="wait">
         <Switch location={location} key={location.pathname}>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/gamin" component={GaminPage} />
-          <Route exact path="/forgot-password" component={ForgotPasswordPage} />
-          <Route exact path="/leaderboard" component={LeaderboardPage} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/me" component={MePage} />
-          <Route exact path="/change-password" component={ChangePasswordPage} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/gamin" component={Gaming} />
+          <Route exact path="/forgot-password" component={ForgotPassword} />
+          <Route exact path="/leaderboard" component={Leaderboard} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/me" component={Me} />
+          <Route exact path="/change-password" component={ChangePassword} />
           <Route
             exact
             path="/reset-password/:resetToken"
-            component={ResetPasswordPage}
+            component={ResetPassword}
           />
-          <Route exact path="/signup" component={SignupPage} />
-          <Route component={NotFoundPage} />
+          <Route exact path="/signup" component={Signup} />
+          <Route component={NotFound} />
         </Switch>
       </AnimatePresence>
     </ThemeProvider>

@@ -20,7 +20,7 @@ const ChangePasswordPage = () => {
   const [newPassword, setNewPassword] = useState("");
   const [newPasswordConfirm, setNewPasswordConfirm] = useState("");
 
-  const { user, changePasswordHandler, setError } = useContext(AuthContext);
+  const { user, setError } = useContext(AuthContext);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -34,9 +34,9 @@ const ChangePasswordPage = () => {
       );
     }
 
-    await changePasswordHandler(currentPassword, newPassword);
-
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
   };
 
   return (

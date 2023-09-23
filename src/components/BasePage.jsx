@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useLocation } from "react-router";
 // Components
-import GoBackBtn from "../components/UIButtons/BtnGoBack";
+import GoBackBtn from "./UIButtons/BtnGoBack";
 import Loading, { LoadingContainer } from "./loadingEl";
 // Context
 import AuthContext from "../AuthContext";

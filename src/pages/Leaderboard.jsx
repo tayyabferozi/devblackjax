@@ -1,12 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import Cookies from "js-cookie";
 // Components
 import BasePage from "../components/BasePage";
 import LeaderboardModal from "../components/LeaderboardModal";
 // Context
 import AuthContext from "../AuthContext";
 // Config
-import { API_URL } from "../config";
 
 // user data: rank, username, color, highScore, currentScore
 
@@ -20,28 +18,6 @@ const LeaderboardPage = () => {
 
   const getLeaderboard = async () => {
     setRanks(false);
-
-    const token = Cookies.get("jwt");
-
-    const isGuest = !user ? "ForGuest" : "";
-
-    const res = await fetch(
-      `${API_URL}/users/leaderboard${isGuest}?page=${page}`,
-      isGuest
-        ? {}
-        : {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-    );
-
-    const dataRes = await res.json();
-
-    if (dataRes.data?.user) setCurrentUserRank(dataRes.data.user.userRank);
-
-    setRanks(dataRes.data.leaderboard);
-    setResultsLength(dataRes.results);
   };
 
   useEffect(() => {

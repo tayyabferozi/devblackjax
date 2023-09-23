@@ -33,9 +33,8 @@ const BettingScreen = ({ showBettingScreen, setShowBettingScreen }) => {
 
   const { tempBank, bank, dealerHand } = useSelector((state) => state.game);
 
-  const { user, gamePlayed, setGamePlayed, lastBet, setLastBet } = useContext(
-    AuthContext
-  );
+  const { user, gamePlayed, setGamePlayed, lastBet, setLastBet } =
+    useContext(AuthContext);
 
   const dispatch = useDispatch();
 
@@ -98,29 +97,9 @@ const BettingScreen = ({ showBettingScreen, setShowBettingScreen }) => {
         dispatch(loadInBettingScreen());
         return;
       }
-
-      const token = Cookies.get("jwt");
-
-      const res = await fetch(`${API_URL}/users/updateScore`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          adminPass: ADMIN_PASS,
-          currentScore: currentScore || 1000,
-        }),
-      });
-
-      const data = await res.json();
-
-      if (data.status === "success") {
-        dispatch(loadInBettingScreen());
-      } else {
-        console.log(data.message);
-      }
-      setIsLoading(false);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
     },
     [dispatch, isLoading, user]
   );

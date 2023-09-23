@@ -24,7 +24,7 @@ const ResetPasswordModal = () => {
 
   const { resetToken } = useParams();
 
-  const { setError, resetPasswordHandler } = useContext(AuthContext);
+  const { setError } = useContext(AuthContext);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -34,10 +34,10 @@ const ResetPasswordModal = () => {
       return setError("Passwords are not the same. Please try again");
     }
 
-    const success = await resetPasswordHandler(resetToken, password);
-
-    setIsSuccess(success);
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsSuccess(true);
+      setIsLoading(false);
+    }, 3000);
   };
 
   return (

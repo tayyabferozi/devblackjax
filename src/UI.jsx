@@ -58,7 +58,7 @@ const UI = ({ setShowBettingScreen, showBettingScreen }) => {
           <div className="player-tag">
             <h3>{playerHandTotal}</h3>
             <h3 style={{ color: user?.color }}>
-              {user?.username.length <= 6 ? user?.username : "Player"}
+              {user?.username?.length <= 6 ? user?.username : "Player"}
             </h3>
           </div>
         </div>

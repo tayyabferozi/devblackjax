@@ -38,7 +38,6 @@ const SignupModal = () => {
     }
 
     await signup(email, password, username, color);
-    // TODO: handle errors and display
 
     setIsLoading(false);
   };

@@ -51,31 +51,9 @@ const MePage = () => {
 
     setIsLoading(true);
 
-    const token = Cookies.get("jwt");
-
-    const req = await fetch(`${API_URL}/users/me`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        username: newUsername || undefined,
-        color,
-      }),
-    });
-
-    const data = await req.json();
-
-    if (data.status === "success") {
-      setUser(data.data.user);
-      setIsEditing(false);
-      setNewUsername("");
-      setColor(user.color);
-    } else {
-      setError(data.message.replaceAll("`", ""));
-    }
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
   };
 
   const colorInputHandler = (e) => {
