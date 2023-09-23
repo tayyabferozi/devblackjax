@@ -1,13 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+// Components
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+// Context
+import { AuthProvider } from "./AuthContext";
+// Redux
+import { Provider } from "react-redux";
+import store from "./store";
+// Router
+import { BrowserRouter } from "react-router-dom";
+// Google Analytics
+import ReactGA from "react-ga";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const TRACKING_ID = "G-N7LTFMKQDJ";
+ReactGA.initialize(TRACKING_ID);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <BrowserRouter>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
