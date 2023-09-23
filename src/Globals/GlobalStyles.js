@@ -24,6 +24,7 @@ const GlobalStyles = createGlobalStyle`
         user-select: none;
 
         background-image:
+          url(https://blackjax.netlify.app/static/media/BGSVG.3b577613.svg),
           linear-gradient(185deg, rgb(34, 31, 44), rgb(31, 29, 36));
         background-blend-mode: overlay;
         background-size: cover;
